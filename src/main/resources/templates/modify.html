@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modyfikacje</title>
+</head>
+<body>
+<h2>Modyfikacje dla : <span th:text="${cust.getFirstName()}" ></span></h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Adres email</th>
+        <th>Numer telefonu</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <form th:action="@{/put}" th:object="${cust}" method="post">
+            <input type="hidden" th:field="*{id}" name="id">
+            <td> <input type="text" th:field="*{firstName}"></td>
+            <td> <input type="text" th:field="*{lastName}" ></td>
+            <td> <input type="text" th:field="*{email}" ></td>
+            <td> <input type="number" th:field="*{phone}" ></td>
+            <td>  <button>Wyslij</button></td>
+
+        </form>
+    </tr>
+    <tr>
+        <td th:text="${cust.firstName}"></td>
+        <td th:text="${cust.LastName}"></td>
+        <td th:text="${cust.email}"></td>
+        <td th:text="${cust.phone}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/styles.css}" rel="stylesheet" />
+    <title>Strona glowna</title>
+</head>
+<body>
+<h1>Lista customers</h1>
+
+<table>
+    <thead>
+    <tr>
+        <td>Imie</td>
+        <td>Nazwisko</td>
+        <td>Email</td>
+        <td>Operacje</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer: ${lista}">
+        <td th:text="${customer.getFirstName()}">Costam</td>
+        <td th:text="${customer.getLastName()}">Costam</td>
+        <td th:text="${customer.getEmail()}">Costam</td>
+        <td>
+            <form th:action="@{/delete}" th:object="${cust}" th:method="post">
+                <input type="hidden" th:value="${customer.id}" name="id">
+                <button>Usun</button>
+            </form>
+            <form th:action="@{/szczegoly}" th:object="${uzyt}" th:method="post">
+                <input type="hidden" th:value="${customer.id}" name="id">
+                <button>Informacje</button>
+            </form>
+            <form th:action="@{/update}" th:object="${obiekt}" th:method="post">
+                <input type="hidden" th:value="${customer.id}" name="id" >
+                <button>Modyfikuj</button>
+            </form>
+            </td>
+    </tr>
+    </tbody>
+</table>
+<h2>Dodaj nowego uzytkownika</h2>
+
+<form th:action="@{/add}" th:object="${newCustomer}" th:method="post">
+    <p>Podaj imie <input type="text" th:field="*{firstName}"></p>
+    <p>Podaj nazwisko <input type="text" th:field="*{lastName}"></p>
+    <p>Podaj email<input type="text"th:field="*{email}"></p>
+    <p>Podaj phone<input type="number"th:field="*{phone}"></p>
+    <p>Wyslij <input type="submit" value="Dodaj"></p>
+</form>
+</body>
+</html>

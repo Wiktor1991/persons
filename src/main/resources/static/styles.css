@@ -1,0 +1,9 @@
+.table{
+    border: solid black;
+    display: flex;
+    direction: ltr;
+}
+thead{
+    text-align: center;
+    text-decoration-color: blue;
+}

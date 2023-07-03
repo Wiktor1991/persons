@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer details</title>
+</head>
+<body>
+<h1>Szczegoly uzytkownika</h1>
+
+<ul>
+    <span>Imie</span>
+    <li th:text="${savedCustomer.firstName}"></li>
+    <p>Nazwisko</p>
+    <li th:text="${savedCustomer.lastName}"></li>
+    <li th:text="${savedCustomer.email}"></li>
+    <li th:text="${savedCustomer.phone}"></li>
+</ul>
+</body>
+</html>
