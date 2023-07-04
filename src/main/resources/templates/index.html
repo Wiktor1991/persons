@@ -2,11 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link th:href="@{/styles.css}" rel="stylesheet" />
+    <link th:href="@{/main.css}" rel="stylesheet" />
     <title>Strona glowna</title>
 </head>
 <body>
+<div id="nag">
 <h1>Lista customers</h1>
+</div>
 
 <table>
     <thead>
@@ -36,11 +38,13 @@
                 <button>Modyfikuj</button>
             </form>
             </td>
+
     </tr>
     </tbody>
 </table>
-<h2>Dodaj nowego uzytkownika</h2>
 
+<h2>Dodaj nowego uzytkownika</h2>
+<div id="add">
 <form th:action="@{/add}" th:object="${newCustomer}" th:method="post">
     <p>Podaj imie <input type="text" th:field="*{firstName}"></p>
     <p>Podaj nazwisko <input type="text" th:field="*{lastName}"></p>
@@ -48,5 +52,6 @@
     <p>Podaj phone<input type="number"th:field="*{phone}"></p>
     <p>Wyslij <input type="submit" value="Dodaj"></p>
 </form>
+</div>
 </body>
 </html>

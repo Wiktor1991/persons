@@ -1,0 +1,17 @@
+    h1{
+        font-size: 2rem;
+        text-decoration-style: dotted;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    table{
+        width: 600px;
+        border: solid black;
+        text-align: center;
+    }
+    td{
+        border: solid black;
+    }
+    #add{
+        display: inline-block;
+    }

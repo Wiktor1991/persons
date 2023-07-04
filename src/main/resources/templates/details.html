@@ -8,12 +8,12 @@
 <h1>Szczegoly uzytkownika</h1>
 
 <ul>
-    <span>Imie</span>
-    <li th:text="${savedCustomer.firstName}"></li>
-    <p>Nazwisko</p>
-    <li th:text="${savedCustomer.lastName}"></li>
-    <li th:text="${savedCustomer.email}"></li>
-    <li th:text="${savedCustomer.phone}"></li>
+    <li th:text="|FIRSTNAME: ${savedCustomer.firstName}|"></li>
+    <li th:text="|LASTNAME: ${savedCustomer.lastName}|"></li>
+    <li th:text="|EMAIL ADRESS: ${savedCustomer.email}|"></li>
+    <li th:text="|PHONENUMBER: ${savedCustomer.phone}|"></li>
 </ul>
+<a th:href="@{/show}">Wroc do strony glownej</a>
+<a th:href="@{/nowy}">Przekierowanie</a>
 </body>
 </html>

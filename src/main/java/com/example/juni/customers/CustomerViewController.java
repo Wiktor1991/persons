@@ -33,13 +33,14 @@ public class CustomerViewController {
     }
 
     @PostMapping("/add")
-    public String addCustomer(@ModelAttribute("cust")Customer customer){
+    public String addCustomer(@ModelAttribute("cust")Customer customer,Model model){
         log.info(customer.toString());
-        if (!customer.firstName.isEmpty() && !customer.lastName.isEmpty()){
-        customerService.addNew(customer);
-        } else{
-            throw new RuntimeException("Niema wyniku");
+        boolean savedCustomer = false;
+        if (!customer.firstName.isEmpty() && !customer.lastName.isEmpty()) {
+            savedCustomer = true;
+            customerService.addNew(customer);
         }
+        model.addAttribute("savedCustomer",savedCustomer);
         return "redirect:/show";
     }
 
